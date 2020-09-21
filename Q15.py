@@ -9,6 +9,8 @@ class Q15no:
     def __init__(self, float_val= None, hex_val = None, bin_val = None):
         if (float_val != None or hex_val or bin_val):
             if(float_val != None):
+                if(float_val >= 1 or float_val < -1):
+                    raise AttributeError("Q15 can represent numbers only between [-1, 1)")
                 if(float_val >= 0):
                     self.hex_rep = self.format_hex(hex(int(float_val * TWO_POW_15 ))[2:])
                 else:
